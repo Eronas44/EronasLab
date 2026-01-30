@@ -16,7 +16,6 @@ const App: React.FC = () => {
   const [error, setError] = useState<string | null>(null); 
   const [activePage, setActivePage] = useState<'overview' | 'projects' | 'settings'>('overview');
 
-
   useEffect(() => {
     fetch('/api/projects')
       .then((res) => {
