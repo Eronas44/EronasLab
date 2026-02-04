@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import type{ Project} from './types';
-import { LayoutDashboard, Settings, Zap, AlertTriangle, MessageSquare, Bot, Layers } from 'lucide-react'; 
+import { LayoutDashboard, Settings, Zap, AlertTriangle, MessageSquare, Bot, Layers, BrainCircuit } from 'lucide-react'; 
 import OverviewPage from './pages/Overview';
 import ProjectsPage from './pages/project';
 import SettingPage from './pages/Setting';
 import MineflayerPage from './pages/Mineflayer';
-
+import AiPage from './pages/ai';
 
 const App: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState<string | null>(null); 
-  const [activePage, setActivePage] = useState<'overview' | 'projects' | 'settings' | 'Mineflayerbot'>('overview');
+  const [activePage, setActivePage] = useState<'overview' | 'projects' | 'settings' | 'Mineflayerbot' | 'ai'>('overview');
 
   useEffect(() => {
     fetch('/api/projects')
@@ -51,10 +51,13 @@ const App: React.FC = () => {
         return <ProjectsPage />;
     }
      if (activePage === 'Mineflayerbot') {
-        return <MineflayerPage />;
+        return <MineflayerPage projects={projects} />;
     }
      if (activePage === 'settings') {
         return <SettingPage />;
+    }
+     if (activePage === 'ai') {
+        return <AiPage/>;
     }
     
     // Default: activePage === 'overview' atau 'projects'
@@ -89,6 +92,12 @@ const App: React.FC = () => {
               }}
             >
               <Bot className="icon-nav" /> Mineflayer bot
+            </a>
+            <a href="#" className={`nav-item ${activePage === 'ai' ? 'active' : ''}`} 
+              onClick={(e) => {e.preventDefault(); setActivePage('ai');
+              }}
+            >
+              <BrainCircuit className="icon-nav" /> Artificial Inteligent
             </a>
 
 
