@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import { Globe, Code, Plus, Bot, Play, Pause, Square, Settings, Activity, Cpu, Wifi, Terminal, Shield, Zap } from 'lucide-react';
-import type { Project } from '../types';
-
-interface MineflayerProps {
-  projects: Project[];
-}
+import {Plus, Bot, Play, Pause, Square, Settings, Activity, Cpu, Wifi, Terminal, Shield, Zap } from 'lucide-react';
 
 interface BotInstance {
   id: string;
@@ -18,7 +13,8 @@ interface BotInstance {
   version: string;
 }
 
-const MineflayerPage: React.FC<MineflayerProps> = ({ projects }) => {
+
+const MineflayerPage: React.FC = () => {
   const [bots, setBots] = useState<BotInstance[]>([
     {
       id: 'bot-1',

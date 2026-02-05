@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Globe, Code, Archive, Calendar, Clock, TrendingUp, Filter, Download, Trash2, RefreshCw } from 'lucide-react';
+import { Globe, Code, Archive, Calendar, Clock, TrendingUp, Filter, Download, RefreshCw } from 'lucide-react';
 import type { Project } from '../types';
 
 interface DoneProps {

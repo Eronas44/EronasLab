@@ -58,7 +58,7 @@ const App: React.FC = () => {
       return <ProjectsPage projects={projects} />;
     }
     if (activePage === 'Mineflayerbot') {
-      return <MineflayerPage projects={projects} />;
+      return <MineflayerPage />;
     }
     if (activePage === 'AllProjects') {
       return <AllProjectsPage projects={projects} />;

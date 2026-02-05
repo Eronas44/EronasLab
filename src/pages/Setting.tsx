@@ -1,5 +1,5 @@
 // src/pages/Setting.tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { User, Bell, Palette, Database, Download, Trash2, Save } from 'lucide-react';
 
 interface SettingsState {
