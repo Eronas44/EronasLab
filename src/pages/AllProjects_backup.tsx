@@ -250,7 +250,7 @@ const AllProjectsPage: React.FC<AllProjectsProps> = ({ projects }) => {
           <div className="projects-header">
             <h2 className="projects-title">All Projects ({filteredProjects.length})</h2>
             <button className="btn-primary" onClick={handleAddNewProject}>
-              <Plus className="inline-icon"/> Add New Project
+              <Plus className='inline-icon'/> Add New Project
             </button>
           </div>
           <div className="projects-list">
@@ -272,11 +272,11 @@ const AllProjectsPage: React.FC<AllProjectsProps> = ({ projects }) => {
                     </div>
                     {project.url && project.url !== '#' ? (
                       <a href={project.url} target="_blank" rel="noreferrer" className="project-url">
-                        <Globe className="icon-url"/> {new URL(project.url).hostname}
+                        <Globe className='icon-url'/> {new URL(project.url).hostname}
                       </a>
                     ) : (
                       <span className="project-url" style={{color: '#9ca3af'}}>
-                        <Code className="icon-url"/> No Public URL
+                        <Code className='icon-url'/> No Public URL
                       </span>
                     )}
                   </div>

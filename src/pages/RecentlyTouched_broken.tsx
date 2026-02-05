@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Globe, Code, Clock, Calendar, User, Activity, TrendingUp, Eye } from 'lucide-react';
+import { Globe, Code, Clock, Calendar, User, Activity, Filter, Search, TrendingUp, Eye } from 'lucide-react';
 import type { Project } from '../types';
 
 interface RecentlyTouchedProps {
@@ -155,7 +155,7 @@ const RecentlyTouchedPage: React.FC<RecentlyTouchedProps> = ({ projects }) => {
       case 'deploy': return '#10b981';
       case 'start': return '#10b981';
       case 'access': return '#8b5cf6';
-      default: return 'var(--muted)';
+      default: return '#6b7280';
     }
   };
 
@@ -176,7 +176,7 @@ const RecentlyTouchedPage: React.FC<RecentlyTouchedProps> = ({ projects }) => {
               style={{
                 width: '100%',
                 padding: '0.75rem 1rem',
-                border: '1px solid var(--border)',
+                border: '1px solid #d1d5db',
                 borderRadius: '8px',
                 fontSize: '0.875rem'
               }}
@@ -189,7 +189,7 @@ const RecentlyTouchedPage: React.FC<RecentlyTouchedProps> = ({ projects }) => {
             onChange={(e) => setTimeFilter(e.target.value as any)}
             style={{
               padding: '0.75rem 1rem',
-              border: '1px solid var(--border)',
+              border: '1px solid #d1d5db',
               borderRadius: '8px',
               fontSize: '0.875rem'
             }}
@@ -206,7 +206,7 @@ const RecentlyTouchedPage: React.FC<RecentlyTouchedProps> = ({ projects }) => {
             onChange={(e) => setActivityFilter(e.target.value as any)}
             style={{
               padding: '0.75rem 1rem',
-              border: '1px solid var(--border)',
+              border: '1px solid #d1d5db',
               borderRadius: '8px',
               fontSize: '0.875rem'
             }}
@@ -229,7 +229,7 @@ const RecentlyTouchedPage: React.FC<RecentlyTouchedProps> = ({ projects }) => {
 
         {/* Results Summary */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-          <span style={{ color: 'var(--muted)', fontSize: '0.875rem' }}>
+          <span style={{ color: '#6b7280', fontSize: '0.875rem' }}>
             Showing {filteredActivities.length} of {activities.length} activities
           </span>
           {(searchTerm || timeFilter !== 'all' || activityFilter !== 'all') && (
@@ -278,7 +278,7 @@ const RecentlyTouchedPage: React.FC<RecentlyTouchedProps> = ({ projects }) => {
                         <p className="project-title">{activity.projectTitle}</p>
                         <p style={{ 
                           fontSize: '0.875rem', 
-                          color: 'var(--muted)', 
+                          color: '#6b7280', 
                           margin: '0.25rem 0',
                           fontStyle: 'italic'
                         }}>
@@ -292,7 +292,7 @@ const RecentlyTouchedPage: React.FC<RecentlyTouchedProps> = ({ projects }) => {
                       gap: '0.5rem', 
                       marginTop: '0.25rem',
                       fontSize: '0.75rem',
-                      color: 'var(--muted)'
+                      color: '#6b7280'
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                         <User className="w-3 h-3" />
@@ -306,20 +306,20 @@ const RecentlyTouchedPage: React.FC<RecentlyTouchedProps> = ({ projects }) => {
                   </div>
                   <div style={{ 
                     padding: '0.75rem', 
-                    backgroundColor: 'rgba(2, 6, 23, 0.35)', 
+                    backgroundColor: '#f9fafb', 
                     borderRadius: '4px',
                     marginTop: '0.5rem',
                     fontSize: '0.875rem',
-                    color: 'var(--text)'
+                    color: '#374151'
                   }}>
                     {activity.details}
                   </div>
                 </div>
               ))
             ) : (
-              <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--muted-2)' }}>
-                <Clock className="w-12 h-12" style={{ margin: '0 auto', color: 'rgba(148, 163, 184, 0.35)' }} />
-                <h3 style={{ marginBottom: '0.5rem', color: 'var(--text)' }}>No recent activity</h3>
+              <div style={{ textAlign: 'center', padding: '2rem', color: '#9ca3af' }}>
+                <Clock className="w-12 h-12" style={{ margin: '0 auto', color: '#d1d5db' }} />
+                <h3 style={{ marginBottom: '0.5rem', color: '#374151' }}>No recent activity</h3>
                 <p style={{ marginBottom: '1rem' }}>
                   {searchTerm || timeFilter !== 'all' || activityFilter !== 'all' 
                     ? 'Try adjusting your search or filters' 
@@ -340,11 +340,11 @@ const RecentlyTouchedPage: React.FC<RecentlyTouchedProps> = ({ projects }) => {
             <h3 className="stats-title">Activity Statistics</h3>
             <div style={{ marginBottom: '1rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                <span style={{ color: 'var(--muted)' }}>Total Activities</span>
+                <span style={{ color: '#6b7280' }}>Total Activities</span>
                 <span style={{ fontWeight: 'bold' }}>{activities.length}</span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                <span style={{ color: 'var(--muted)' }}>Today's Activity</span>
+                <span style={{ color: '#6b7280' }}>Today's Activity</span>
                 <span style={{ fontWeight: 'bold', color: '#10b981' }}>
                   {activities.filter(a => {
                     const today = new Date();
@@ -354,7 +354,7 @@ const RecentlyTouchedPage: React.FC<RecentlyTouchedProps> = ({ projects }) => {
                 </span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                <span style={{ color: 'var(--muted)' }}>This Week</span>
+                <span style={{ color: '#6b7280' }}>This Week</span>
                 <span style={{ fontWeight: 'bold', color: '#3b82f6' }}>
                   {activities.filter(a => {
                     const weekAgo = new Date();
@@ -364,75 +364,71 @@ const RecentlyTouchedPage: React.FC<RecentlyTouchedProps> = ({ projects }) => {
                 </span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: 'var(--muted)' }}>Most Active User</span>
+                <span style={{ color: '#6b7280' }}>Most Active User</span>
                 <span style={{ fontWeight: 'bold', color: '#8b5cf6' }}>John Doe</span>
               </div>
             </div>
             
             <div style={{ marginBottom: '1rem' }}>
-              <h4 style={{ marginBottom: '0.5rem', color: 'var(--text)' }}>Activity Breakdown</h4>
+              <h4 style={{ marginBottom: '0.5rem', color: '#374151' }}>Activity Breakdown</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
-                  <span style={{ color: 'var(--muted)' }}>Views</span>
+                  <span style={{ color: '#6b7280' }}>Views</span>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <div style={{ width: '100px', height: '8px', backgroundColor: 'rgba(148, 163, 184, 0.14)', borderRadius: '4px' }}>
+                    <div style={{ width: '100px', height: '8px', backgroundColor: '#e5e7eb', borderRadius: '4px' }}>
                       <div style={{ 
                         width: '35%', 
                         height: '100%', 
                         backgroundColor: '#3b82f6',
                         borderRadius: '4px'
                       }}></div>
-                    </div>
                   </div>
-                  <span style={{ fontSize: '0.875rem', color: 'var(--muted)' }}>
+                  <span style={{ fontSize: '0.875rem', color: '#6b7280' }}>
                     {activities.filter(a => a.type === 'view').length}
                   </span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
-                  <span style={{ color: 'var(--muted)' }}>Edits</span>
+                  <span style={{ color: '#6b7280' }}>Edits</span>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <div style={{ width: '100px', height: '8px', backgroundColor: 'rgba(148, 163, 184, 0.14)', borderRadius: '4px' }}>
+                    <div style={{ width: '100px', height: '8px', backgroundColor: '#e5e7eb', borderRadius: '4px' }}>
                       <div style={{ 
                         width: '25%', 
                         height: '100%', 
                         backgroundColor: '#f59e0b',
                         borderRadius: '4px'
                       }}></div>
-                    </div>
                   </div>
-                  <span style={{ fontSize: '0.875rem', color: 'var(--muted)' }}>
+                  <span style={{ fontSize: '0.875rem', color: '#6b7280' }}>
                     {activities.filter(a => a.type === 'edit').length}
                   </span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
-                  <span style={{ color: 'var(--muted)' }}>Deployments</span>
+                  <span style={{ color: '#6b7280' }}>Deployments</span>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <div style={{ width: '100px', height: '8px', backgroundColor: 'rgba(148, 163, 184, 0.14)', borderRadius: '4px' }}>
+                    <div style={{ width: '100px', height: '8px', backgroundColor: '#e5e7eb', borderRadius: '4px' }}>
                       <div style={{ 
                         width: '20%', 
                         height: '100%', 
                         backgroundColor: '#10b981',
                         borderRadius: '4px'
                       }}></div>
-                    </div>
                   </div>
-                  <span style={{ fontSize: '0.875rem', color: 'var(--muted)' }}>
+                  <span style={{ fontSize: '0.875rem', color: '#6b7280' }}>
                     {activities.filter(a => a.type === 'deploy').length}
                   </span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--muted)' }}>System</span>
+                  <span style={{ color: '#6b7280' }}>System</span>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <div style={{ width: '100px', height: '8px', backgroundColor: 'rgba(148, 163, 184, 0.14)', borderRadius: '4px' }}>
+                    <div style={{ width: '100px', height: '8px', backgroundColor: '#e5e7eb', borderRadius: '4px' }}>
                       <div style={{ 
                         width: '20%', 
                         height: '100%', 
                         backgroundColor: '#8b5cf6',
                         borderRadius: '4px'
                       }}></div>
-                    </div>
                   </div>
-                  <span style={{ fontSize: '0.875rem', color: 'var(--muted)' }}>
+                  <span style={{ fontSize: '0.875rem', color: '#6b7280' }}>
                     {activities.filter(a => a.type === 'start' || a.type === 'access').length}
                   </span>
                 </div>
