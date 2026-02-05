@@ -16,7 +16,7 @@ const App: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [activePage, setActivePage] = useState<string>('settings');
+  const [activePage, setActivePage] = useState<string>('dashboard');
   const [overviewExpanded, setOverviewExpanded] = useState(false);
   const [projectsExpanded, setProjectsExpanded] = useState(false);
 
@@ -119,9 +119,11 @@ const App: React.FC = () => {
             {overviewExpanded && (
               <div className="nav-sub-menu">
                 <a href="#" className={`nav-item nav-sub-item ${activePage === 'activeproject' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); setActivePage('activeproject'); }}>
+                  <span style={{ marginRight: '12px', color: '#4b5563', fontSize: '14px',fontFamily: 'monospace' }}>└─</span>  
                   <LayoutDashboard className="icon-nav" /> Active Projects
                 </a>
                 <a href="#" className={`nav-item nav-sub-item ${activePage === 'recentlytouched' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); setActivePage('recentlytouched'); }}>
+                  <span style={{ marginRight: '12px', color: '#4b5563', fontSize: '14px',fontFamily: 'monospace' }}>└─</span>  
                   <LayoutDashboard className="icon-nav" /> Recently Touched
                 </a>
               </div>
@@ -145,9 +147,11 @@ const App: React.FC = () => {
             {projectsExpanded && (
               <div className="nav-sub-menu">
                 <a href="#" className={`nav-item nav-sub-item ${activePage === 'AllProjects' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); setActivePage('AllProjects'); }}>
+                  <span style={{ marginRight: '12px', color: '#4b5563', fontSize: '14px',fontFamily: 'monospace' }}>└─</span>  
                   <Layers className="icon-nav" /> All Projects
                 </a>
                 <a href="#" className={`nav-item nav-sub-item ${activePage === 'done' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); setActivePage('done'); }}>
+                  <span style={{ marginRight: '12px', color: '#4b5563', fontSize: '14px',fontFamily: 'monospace' }}>└─</span>  
                   <Layers className="icon-nav" /> Done
                 </a>
               </div>
